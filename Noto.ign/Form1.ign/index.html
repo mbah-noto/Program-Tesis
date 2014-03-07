@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript" src="qrc:///js/ign.js"></script>
+<script>
+
+	var sql = ign.sql();
+	/*
+		set driver :
+			sql.driver("sql_driver ex:sqlite2/sqlite3/mysql","connection")
+		connection :
+			mysql = "hostname:user:password:database";
+			sqlite2 or sqlite3 = "database file";
+	*/
+	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
+
+function add(){
+	var nama = $('#nama').val();
+	var alamat = $('#alamat').val();
+	var tahun = $('#tahun').val();
+	sql.query("insert into bmt (nama,alamat,tahun) value ('"+nama+"','"+alamat+"','"+tahun+"')");
+	show();
+	alert('data berhasil di input');
+}
+
+function show(){
+	$('#nama').val('');
+	$('#alamat').val('');
+	$('#tahun').val('');
+	if(driver){
+		var qry = sql.query("select * from bmt");
+		var query = $.parseJSON(qry);
+		var html = "";
+		$("h2").html("Status Database Connection : "+query.status);
+		if(query.status){
+			$.each(query.content,function(data){
+				html += "No : "+this.no+"<br>";
+				html += "Nama : "+this.nama+"<br>";
+				html += "Alamat : "+this.alamat+"<br>";
+				html += "Tahun : "+this.tahun+"<br>";
+			});
+		}
+		$(".data").html(html);
+	}
+}
+</script>
+</head>
+<body>
+	<input type="text" id="nama"><br>
+	<input type="text" id="alamat"><br>
+	<input type="text" id="tahun"><br>
+	<input type="submit" value="input" onclick="add()"><br>
+	<h1></h1>
+	<h2>Data</h2>
+	<div class="data"></div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<body background=""/>
+<font color = "#AAAAA"><h2>==Form ATMR==</h2>
+<form name="atmr" action="#">
+<table border = "1px">
+<font color = "#ee36a2">
+<tr>
+<th width="5%">No</th>
+<th width="25%">Komponen Modal</th>
+<th width="25%">Nilai(Rp)</th>
+<th width="10%">Bobot <br>Risiko(%)</th>
+<th width="30%">Modal yang Diakui (Rp)</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Kas</td>
+<td>Rp.<input type="text" name="kas" value="0" size="10">
+<td><input type="text" name="bobotKas" value="0" size="2" readonly>%</td>
+<td>Rp.<input type="text" name="akumulasiKas" size="10" readonly="true" onchange="hitungModal()"></td>
+</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Simpanan/rekening di bank syariah</td>
+<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
+<td><input type="text" name="bobotKas" value="20" size="2" readonly>%</td>
+<td>Rp.<input type="text" name="modalTertimbang" size="10" readonly="true" onchange="hitungModal()"></td>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Simpanan/rekening di KJKS lain</td>
+<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
+<td><input type="text" name="bobotKas" value="50" size="2" readonly>%</td>
+<td>Rp.<input type="text" name="modalKas" size="10" readonly="true" onchange="hitungModal()"></td>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Pembiayaan</td>
+<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
+<td><input type="text" name="bobotKas" value="100" size="2" readonly>%</td>
+<td>Rp.<input type="text" name="modalTertimbang" size="10" readonly="true" onchange="hitungModal()"></td>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Penyertaan pada koperasi,anggota,dan pihak lain</td>
+<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
+<td><input type="text" name="bobotKas" value="50" size="2" readonly>%</td>
+<td>Rp.<input type="text" name="modalTertimbang" size="10" readonly="true" onchange="hitungModal()"></td>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Aktiva tetap dan inventaris</td>
+<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
+<td><input type="text" name="bobotKas" value="70" size="2" readonly>%</td>
+<td>Rp.<input type="text" name="modalTertimbang" size="10" readonly="true" onchange="hitungModal()"></td>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Aktiva lain-lain</td>
+<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
+<td><input type="text" name="bobotKas" value="70" size="2" readonly>%</td>
+<td>Rp.<input type="text" name="modalTertimbang" size="10" readonly="true" onchange="hitungModal()"></td>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="right">Jumlah</td>
+<td><input type="text" name="Total" readonly="true">
+</td>
+</tr>
+
+</table>
+<br><input type="button" value="BATAL" onMouseUp="resetForm()">
+</form>
+<script language="JavaScript" type="text/javascript">
+<!--
+function hitungPesan(){
+var 
+var 
+var 
+var 
+var 
+var 
+var 
+else{
+nota.Total.value = jumlahTotal;
+nota.Diskon.value = 0;
+nota.Bayar.value = jumlahTotal;
+}
+}
+function resetForm(){
+document.pemesanan.reset();
+}
+//->
+</script>
+<br>
+</body>
+</html>
