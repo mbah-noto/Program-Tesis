@@ -19,7 +19,9 @@ function add(){
 	var nama = $('#nama').val();
 	var alamat = $('#alamat').val();
 	var tahun = $('#tahun').val();
-	sql.query("insert into bmt (nama,alamat,tahun) value ('"+nama+"','"+alamat+"','"+tahun+"')");
+	var jmlpegawai = $('#jmlpegawai').val();
+	var nomorsah = $('#nomorsah')
+	sql.query("insert into bmt (nama,alamat,tahun,jmlpegawai,nomorsah) value ('"+nama+"','"+alamat+"','"+tahun+"','"+jmlpegawai+"','"+nomorsah+"')");
 	show();
 	alert('data berhasil di input');
 }
@@ -28,6 +30,8 @@ function show(){
 	$('#nama').val('');
 	$('#alamat').val('');
 	$('#tahun').val('');
+	$('#jmlpegawai').val('');
+	$('#nomorsah').val('');
 	if(driver){
 		var qry = sql.query("select * from bmt");
 		var query = $.parseJSON(qry);
@@ -36,9 +40,12 @@ function show(){
 		if(query.status){
 			$.each(query.content,function(data){
 				html += "No : "+this.no+"<br>";
+				html += "Nomor Pengesahan : "+this.nomorsah+"<br>";
 				html += "Nama : "+this.nama+"<br>";
 				html += "Alamat : "+this.alamat+"<br>";
 				html += "Tahun : "+this.tahun+"<br>";
+				html += "Pegawai :"+this.jmlpegawai+"<br>";
+
 			});
 		}
 		$(".data").html(html);
@@ -47,9 +54,11 @@ function show(){
 </script>
 </head>
 <body>
-	<input type="text" id="nama"><br>
-	<input type="text" id="alamat"><br>
-	<input type="text" id="tahun"><br>
+	Nomor Pengesahan :<input type="text" id="nomorsah"><br>
+	Nama BMT :<input type="text" id="nama"><br>
+	Alamat :<input type="text" id="alamat"><br>
+	Tahun Pendirian :<input type="text" id="tahun"><br>
+	Jumlah Pegawai :<input type="text" id="jmlpegawai"><br>
 	<input type="submit" value="input" onclick="add()"><br>
 	<h1></h1>
 	<h2>Data</h2>
