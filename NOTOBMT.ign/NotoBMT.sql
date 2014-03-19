@@ -23,14 +23,14 @@ DROP TABLE IF EXISTS `bmt`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bmt` (
-  `no` int(255) NOT NULL AUTO_INCREMENT,
+  `id_bmt` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(50) NOT NULL,
-  `alamat` varchar(255) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
   `tahun` year(4) NOT NULL,
   `jmlpegawai` varchar(50) NOT NULL,
   `nomorsah` varbinary(50) NOT NULL,
   `direktur` varchar(255) NOT NULL,
-  PRIMARY KEY (`no`)
+  PRIMARY KEY (`id_bmt`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -44,6 +44,89 @@ LOCK TABLES `bmt` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `kap`
+--
+
+DROP TABLE IF EXISTS `kap`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `kap` (
+  `id_kap` int(11) NOT NULL AUTO_INCREMENT,
+  `id_bmt` int(11) NOT NULL,
+  PRIMARY KEY (`id_kap`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kap`
+--
+
+LOCK TABLES `kap` WRITE;
+/*!40000 ALTER TABLE `kap` DISABLE KEYS */;
+/*!40000 ALTER TABLE `kap` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `manajemen`
+--
+
+DROP TABLE IF EXISTS `manajemen`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `manajemen` (
+  `id_man` int(11) NOT NULL,
+  `id_bmt` int(11) NOT NULL,
+  `manum1` enum('y','t') NOT NULL,
+  `manum2` enum('y','t') NOT NULL,
+  `manum3` enum('y','t') NOT NULL,
+  `manum4` enum('y','t') NOT NULL,
+  `manum5` enum('y','t') NOT NULL,
+  `manum6` enum('y','t') NOT NULL,
+  `manum7` enum('y','t') NOT NULL,
+  `manum8` enum('y','t') NOT NULL,
+  `manum9` enum('y','t') NOT NULL,
+  `manum10` enum('y','t') NOT NULL,
+  `manum11` enum('y','t') NOT NULL,
+  `manum12` enum('y','t') NOT NULL,
+  `manlem1` enum('y','t') NOT NULL,
+  `manlem2` enum('y','t') NOT NULL,
+  `manlem3` enum('y','t') NOT NULL,
+  `manlem4` enum('y','t') NOT NULL,
+  `manlem5` enum('y','t') NOT NULL,
+  `manlem6` enum('y','t') NOT NULL,
+  `manmod1` enum('y','t') NOT NULL,
+  `manmod2` enum('y','t') NOT NULL,
+  `manmod3` enum('y','t') NOT NULL,
+  `manmod4` enum('y','t') NOT NULL,
+  `manmod5` enum('y','t') NOT NULL,
+  `manakt1` enum('y','t') NOT NULL,
+  `manakt2` enum('y','t') NOT NULL,
+  `manakt3` enum('y','t') NOT NULL,
+  `manakt4` enum('y','t') NOT NULL,
+  `manakt5` enum('y','t') NOT NULL,
+  `manakt6` enum('y','t') NOT NULL,
+  `manakt7` enum('y','t') NOT NULL,
+  `manakt8` enum('y','t') NOT NULL,
+  `manakt9` enum('y','t') NOT NULL,
+  `manakt10` enum('y','t') NOT NULL,
+  `manlik1` enum('y','t') NOT NULL,
+  `manlik2` enum('y','t') NOT NULL,
+  `manlik3` enum('y','t') NOT NULL,
+  `manlik4` enum('y','t') NOT NULL,
+  `manlik5` enum('y','t','','') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `manajemen`
+--
+
+LOCK TABLES `manajemen` WRITE;
+/*!40000 ALTER TABLE `manajemen` DISABLE KEYS */;
+/*!40000 ALTER TABLE `manajemen` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `modal`
 --
 
@@ -51,10 +134,29 @@ DROP TABLE IF EXISTS `modal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `modal` (
-  `sendiri` int(255) NOT NULL,
-  `total` int(255) NOT NULL,
-  `hasil` int(50) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`hasil`)
+  `id_modal` int(11) NOT NULL AUTO_INCREMENT,
+  `id_bmt` int(11) NOT NULL,
+  `modalsen` double NOT NULL,
+  `modaltot` double NOT NULL,
+  `simpananpokok` double NOT NULL,
+  `simpananwajib` double NOT NULL,
+  `modalsetara` double NOT NULL,
+  `modalserta` double NOT NULL,
+  `cadanganumum` double NOT NULL,
+  `cadtujuanresiko` double NOT NULL,
+  `modalsumbang` double NOT NULL,
+  `shubelumbagi` double NOT NULL,
+  `modalsetor` double NOT NULL,
+  `modaltambah` double NOT NULL,
+  `modsertakop` double NOT NULL,
+  `kas` double NOT NULL,
+  `simpanbank` double NOT NULL,
+  `simpankjks` double NOT NULL,
+  `pembiayaan` double NOT NULL,
+  `penyertakoperasi` double NOT NULL,
+  `aktivatetap` double NOT NULL,
+  `aktivalain` double NOT NULL,
+  PRIMARY KEY (`id_modal`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -101,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-03-11 12:12:57
+-- Dump completed on 2014-03-13  2:30:30

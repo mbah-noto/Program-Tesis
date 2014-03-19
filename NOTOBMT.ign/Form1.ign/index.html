@@ -1,107 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<body background=""/>
-<font color = "#AAAAA"><h2>==Form ATMR==</h2>
-<form name="atmr" action="#">
-<table border = "1px">
-<font color = "#ee36a2">
-<tr>
-<th width="5%">No</th>
-<th width="25%">Komponen Modal</th>
-<th width="25%">Nilai(Rp)</th>
-<th width="10%">Bobot <br>Risiko(%)</th>
-<th width="30%">Modal yang Diakui (Rp)</th>
-</tr>
-
-<tr>
-<td>1</td>
-<td>Kas</td>
-<td>Rp.<input type="text" name="kas" value="0" size="10">
-<td><input type="text" name="bobotKas" value="0" size="2" readonly>%</td>
-<td>Rp.<input type="text" name="akumulasiKas" size="10" readonly="true" onchange="hitungModal()"></td>
-</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>Simpanan/rekening di bank syariah</td>
-<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
-<td><input type="text" name="bobotKas" value="20" size="2" readonly>%</td>
-<td>Rp.<input type="text" name="modalTertimbang" size="10" readonly="true" onchange="hitungModal()"></td>
-</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Simpanan/rekening di KJKS lain</td>
-<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
-<td><input type="text" name="bobotKas" value="50" size="2" readonly>%</td>
-<td>Rp.<input type="text" name="modalKas" size="10" readonly="true" onchange="hitungModal()"></td>
-</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Pembiayaan</td>
-<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
-<td><input type="text" name="bobotKas" value="100" size="2" readonly>%</td>
-<td>Rp.<input type="text" name="modalTertimbang" size="10" readonly="true" onchange="hitungModal()"></td>
-</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Penyertaan pada koperasi,anggota,dan pihak lain</td>
-<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
-<td><input type="text" name="bobotKas" value="50" size="2" readonly>%</td>
-<td>Rp.<input type="text" name="modalTertimbang" size="10" readonly="true" onchange="hitungModal()"></td>
-</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Aktiva tetap dan inventaris</td>
-<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
-<td><input type="text" name="bobotKas" value="70" size="2" readonly>%</td>
-<td>Rp.<input type="text" name="modalTertimbang" size="10" readonly="true" onchange="hitungModal()"></td>
-</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Aktiva lain-lain</td>
-<td>Rp.<input type="text" name="nilaiKas" value="0" size="10">
-<td><input type="text" name="bobotKas" value="70" size="2" readonly>%</td>
-<td>Rp.<input type="text" name="modalTertimbang" size="10" readonly="true" onchange="hitungModal()"></td>
-</td>
-</tr>
-
-<tr>
-<td colspan="2" align="right">Jumlah</td>
-<td><input type="text" name="Total" readonly="true">
-</td>
-</tr>
-
-</table>
-<br><input type="button" value="BATAL" onMouseUp="resetForm()">
-</form>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript" src="qrc:///js/ign.js"></script>
 <script language="JavaScript" type="text/javascript">
 <!--
-function hitungPesan(){
-var 
-var 
-var 
-var 
-var 
-var 
-var 
-else{
-nota.Total.value = jumlahTotal;
-nota.Diskon.value = 0;
-nota.Bayar.value = jumlahTotal;
+
+	var sql = ign.sql();
+	/*
+		set driver :
+			sql.driver("sql_driver ex:sqlite2/sqlite3/mysql","connection")
+		connection :
+			mysql = "hostname:user:password:database";
+			sqlite2 or sqlite3 = "database file";
+	*/
+	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
+
+function add(){
+	var nama = $('#nama').val();
+	var alamat = $('#alamat').val();
+	var tahun = $('#tahun').val();
+	var nomorsah = $('#nomorsah').val();
+	var direktur = $('#direktur').val();	
+	var market = $('#s_market').val();
+	var teller = $('#s_teller').val();
+	var legal = $('#s_legal').val();
+	var pelayanan = $('#s_cs').val();
+	var akuntansi = $('#s_akuntan').val();
+	var keamanan = $('#s_aman').val();	
+		
+	console.log(sql.query("insert into bmt (nama,alamat,tahun,nomorsah,direktur,s_market,s_akuntan,s_teller,s_cs,s_legal,s_aman) value ('"+nama+"','"+alamat+"','"+tahun+"','"+nomorsah+"','"+direktur+"','"+market+"','"+akuntansi+"','"+teller+"','"+pelayanan+"','"+legal+"','"+keamanan+"')"));
+	//show();
+	alert('data berhasil di input');
 }
-}
+
+
 function resetForm(){
-document.pemesanan.reset();
 }
 //->
 </script>
+</head>
+<body background=""/>
+<font color = "#AAAAA"><h2>Data BMT</h2>
+<form name="Daftar BMT" action="#">
+<table border = "0px">
+<font color = "#ee36a2">
+
+<tr>
+<td>Nama BMT</td>
+<td><input type="text" id="nama" size="20">
+</td>
+<td>Logo</td>
+<td><input type="submit" value="Upload" size="5"></td>
+</tr>
+
+<tr>
+<td>Alamat BMT</td>
+<td><input type="text" id="alamat" size="20">
+</td>
+<td>Nama Direktur</td>
+<td><input type="text" id="direktur" size="20"></td>
+</tr>
+
+<tr>
+<td>Tahun Berdiri BMT</td>
+<td><input type="text" id="tahun" size="10">
+</td>
+<td>Jumlah Pegawai</td>
+<td><input type="text" name="" size="2"></td>
+</tr>
+
+<tr>
+<td>Nomor Pengesahan</td>
+<td><input type="text" id="nomorsah" size="20">
+</td>
+<td colspan="2" align="right">Marketing</td>
+<td><input type="text" id="s_market" size="1"></td>
+<td>Akuntan</td>
+<td><input type="text" id="s_akuntan" size="1"></td>
+<td>Pelayanan</td>
+<td><input type="text" id="s_cs" size="1"></td>
+<td>Keamanan</td>
+<td><input type="text" id="s_aman" size="1"></td>
+<td>Legal</td>
+<td><input type="text" id="s_legal" size="1"></td>
+</tr>
+
+<tr>
+<td>Badan Hukum BMT</td>
+<td><input type="text"  size="20">
+</td>
+<td>Jumlah Kantor</td>
+<td><input type="text"  size="1"></td>
+<td>Pusat</td>
+<td><input type="text"  size="1"></td>
+<td>Kas</td>
+<td><input type="text" size="1"></td>
+</tr>
+
+<tr>
+<td></td><td></td>
+<td colspan="1" align="left">Status Kantor</td>
+<td><input type="text" size="1"></td>
+</tr>
+
+
+</table>
+<input type="submit" value="INPUT" onclick="add()">
+<input type="button" value="BATAL" onMouseUp="resetForm()">
+</form>
+
 <br>
 </body>
 </html>

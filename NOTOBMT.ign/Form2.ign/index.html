@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript" src="qrc:///js/ign.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+
+	var sql = ign.sql();
+	/*
+		set driver :
+			sql.driver("sql_driver ex:sqlite2/sqlite3/mysql","connection")
+		connection :
+			mysql = "hostname:user:password:database";
+			sqlite2 or sqlite3 = "database file";
+	*/
+	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
+
+function add(){
+	var nama = $('#nama').val();
+	var alamat = $('#alamat').val();
+	var tahun = $('#tahun').val();
+	var nomorsah = $('#nomorsah').val();
+	var direktur = $('#direktur').val();	
+	//var staff market = $('#s_market').val();
+	//var staff teller = $('#s_teller').val();
+	//var staff legal = $('#s_legal').val();
+	//var staff costumer service = $('#s_cs').val();
+	//var staff akuntansi = $('#s_akuntan').val();
+	//var staff kemananan = $('#s_aman').val();	
+		
+	sql.query("insert into bmt (nama,alamat,tahun,nomorsah,direktur) value ('"+nama+"','"+alamat+"','"+tahun+"','"+nomorsah+"','"+direktur+"')");
+	show();
+	alert('data berhasil di input');
+}
+
+
+function resetForm(){
+}
+//->
+</script>
+</head>
+<body background=""/>
+<font color = "#AAAAA"><h2>Laporan Keuangan</h2>
+<form name="Laporan Keuangan" action="#">
+<table border = "0px">
+<font color = "#ee36a2">
+
+<tr>
+<td>Kas</td>
+<td><input type="text" name="nama" size="20"></td></tr>
+<tr>
+<td>Simpanan Bank</td>
+<td><input type="text" name="nama" size="20"></td></tr>
+<tr>
+<td>Surat Berharga</td>
+<td><input type="text" name="nama" size="20"></td></tr>
+<tr>
+<td>Piutang Pinjaman Anggota</td>
+<td><input type="text" name="nama" size="20"></td></tr>
+<tr>
+<td>Piutang Pinjaman Non Anggota</td>
+<td><input type="text" name="nama" size="20"></td></tr>
+<tr>
+<td>Piutang Usaha</td>
+<td><input type="text" name="nama" size="20"></td>
+</tr>
+
+
+</table>
+<input type="submit" value="INPUT" onclick="add()">
+<input type="button" value="BATAL" onMouseUp="resetForm()">
+</form>
+
+<br>
+</body>
+</html>
