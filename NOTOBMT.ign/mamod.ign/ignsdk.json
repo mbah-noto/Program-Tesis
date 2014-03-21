@@ -1,0 +1,21 @@
+{
+  "config" : { 
+		"debug" : true,
+		"websecurity" : true,
+		"name" : "NOTO-BMT"
+  },
+  "window" : { 
+		"transparent" : false, 
+		"noframe" : true, 
+		"fullscreen" : false,
+		"maximize" : true,
+		"width" : 800,
+		"height" : 600
+	},
+  "button" : [
+		"back",
+		"forward",
+		"stop",
+		"reload"
+	]
+}

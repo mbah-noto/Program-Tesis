@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript" src="qrc:///js/ign.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+
+	var sql = ign.sql();
+	/*
+		set driver :
+			sql.driver("sql_driver ex:sqlite2/sqlite3/mysql","connection")
+		connection :
+			mysql = "hostname:user:password:database";
+			sqlite2 or sqlite3 = "database file";
+	*/
+	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
+
+function add(){
+	//var nama = $('#nama').val();
+	//var alamat = $('#alamat').val();
+	//var tahun = $('#tahun').val();
+	//var nomorsah = $('#nomorsah').val();
+	//var direktur = $('#direktur').val();	
+	//var staff market = $('#s_market').val();
+	//var staff teller = $('#s_teller').val();
+	//var staff legal = $('#s_legal').val();
+	//var staff costumer service = $('#s_cs').val();
+	//var staff akuntansi = $('#s_akuntan').val();
+	//var staff kemananan = $('#s_aman').val();	
+		
+	sql.query("insert into bmt (nama,alamat,tahun,nomorsah,direktur) value ('"+nama+"','"+alamat+"','"+tahun+"','"+nomorsah+"','"+direktur+"')");
+	show();
+	alert('data berhasil di input');
+}
+
+
+function resetForm(){
+}
+//->
+</script>
+</head>
+<body background=""/>
+<font color = "#AAAAA"><h2>Laporan Manajemen Lembaga</h2>
+<form name="Laporan Manajemen" action="#">
+<table border = "1px">
+<font color = "#ee36a2">
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript" src="qrc:///js/ign.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+
+	var sql = ign.sql();
+	/*
+		set driver :
+			sql.driver("sql_driver ex:sqlite2/sqlite3/mysql","connection")
+		connection :
+			mysql = "hostname:user:password:database";
+			sqlite2 or sqlite3 = "database file";
+	*/
+	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
+
+function add(){
+	//var nama = $('#nama').val();
+	//var alamat = $('#alamat').val();
+	//var tahun = $('#tahun').val();
+	//var nomorsah = $('#nomorsah').val();
+	//var direktur = $('#direktur').val();	
+	//var staff market = $('#s_market').val();
+	//var staff teller = $('#s_teller').val();
+	//var staff legal = $('#s_legal').val();
+	//var staff costumer service = $('#s_cs').val();
+	//var staff akuntansi = $('#s_akuntan').val();
+	//var staff kemananan = $('#s_aman').val();	
+		
+	sql.query("insert into bmt (nama,alamat,tahun,nomorsah,direktur) value ('"+nama+"','"+alamat+"','"+tahun+"','"+nomorsah+"','"+direktur+"')");
+	show();
+	alert('data berhasil di input');
+}
+
+
+function resetForm(){
+}
+//->
+</script>
+</head>
+<body background=""/>
+<font color = "#AAAAA"><h2>Laporan Kepatuhan Prinsip Syariah</h2>
+<form name="Laporan Manajemen" action="#">
+<table border = "1px">
+<font color = "#ee36a2">
+
+<tr>
+<td><b>No</b></td>
+<td><b>ASPEK</b></td>
+<td><b>CheckBox</b></td></tr>
+<tr>
+<td>1</td>
+<td>Akad dilaksanakan sesuai tata cara syariah</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>2</td>
+<td>Penempatan dana pada bank syariah</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>3</td>
+<td>Adanya Dewan Pengawas Syariah</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>4</td>
+<td>Komposisi modal penyertaan dan pembiayaan berasal <br>
+dari lembaga keuangan syariah 
+</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>5</td>
+<td>Pertemuan kelompok yang dihadiri oleh seluruh pengurus,<br> 
+pengawas, Dewan Pengawas Syariah, Pengelola, Karyawan pendiri <br> 
+dan anggota yang diselenggarakan secara berkala 
+</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>6</td>
+<td>Manajemen BMT memiliki sertifikat pendidikan pengelolaan <br>
+lembaga keuangan syariah yang dikeluarkan oleh pihak yang kompeten </td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>7</td>
+<td>Frekuensi rapat Dewan Pengawas Syariah untuk membicarakan <br>
+ketepatan pola pembiayaan yang dijalankan pengelola dalam 1 tahun 
+</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>8</td>
+<td>Dalam mengatasi pembiayaan bermasalah digunakan pendekatan <br>
+syariah </td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>9</td>
+<td>Meningkatnya titipan ZIS dari anggota</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>10</td>
+<td>Meningkatnya pemahaman anggota terhadap <br>
+keunggulan sistem syariah dari waktu ke waktu </td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+
+</table>
+<input type="submit" value="INPUT" onclick="add()">
+<input type="button" value="BATAL" onMouseUp="resetForm()">
+</form>
+
+<br>
+</body>
+</html>

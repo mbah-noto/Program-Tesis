@@ -27,16 +27,50 @@ function add(){
 	var legal = $('#s_legal').val();
 	var pelayanan = $('#s_cs').val();
 	var akuntansi = $('#s_akuntan').val();
-	var keamanan = $('#s_aman').val();	
-		
+	var keamanan = $('#s_aman').val();		
 	console.log(sql.query("insert into bmt (nama,alamat,tahun,nomorsah,direktur,s_market,s_akuntan,s_teller,s_cs,s_legal,s_aman) value ('"+nama+"','"+alamat+"','"+tahun+"','"+nomorsah+"','"+direktur+"','"+market+"','"+akuntansi+"','"+teller+"','"+pelayanan+"','"+legal+"','"+keamanan+"')"));
 	//show();
 	alert('data berhasil di input');
 }
 
-
-function resetForm(){
-}
+$(function(){
+  var Pusat,kas,Marketing,Pelayanan,Teller,Keamanan,Legal,Akuntan;
+  $('#KanPus').keyup(function(){
+    Pusat = parseInt($(this).val());
+    $('#KanPus').val(Pusat);
+  });
+  $('#KanKas').keyup(function(){
+    Kas = parseInt($(this).val());
+    $('#KanKas').val(Kas);
+  });
+  $('#s_market').keyup(function(){
+    Marketing = parseInt($(this).val());
+    $('#s_market').val(Marketing);
+  });
+  $('#s_cs').keyup(function(){
+    Pelayanan = parseInt($(this).val());
+    $('#s_cs').val(Pelayanan);
+  });
+  $('#s_teller').keyup(function(){
+    Teller = parseInt($(this).val());
+    $('#s_teller').val(Teller);
+  });
+  $('#s_aman').keyup(function(){
+    Keamanan = parseInt($(this).val());
+    $('#s_aman').val(Keamanan);
+  });
+  $('#s_akuntan').keyup(function(){
+    Akuntan = parseInt($(this).val());
+    $('#s_akuntan').val(Akuntan);
+  });
+  $('#s_legal').keyup(function(){
+    Legal = parseInt($(this).val());
+    $('#s_legal').val(Legal);
+  });
+  $('#KanKas,KanPus,s_market,s_akuntan,s_aman,s_cs,s_teller,s_legal').keyup(function(){
+		$('#JumKan').val(Pusat + Kas)
+  		$('#JumPeg').val(Marketing + Pelayanan + Keamanan + Legal + Akuntan + Teller)});
+});
 //->
 </script>
 </head>
@@ -48,60 +82,55 @@ function resetForm(){
 
 <tr>
 <td>Nama BMT</td>
-<td><input type="text" id="nama" size="20">
-</td>
-<td>Logo</td>
-<td><input type="submit" value="Upload" size="5"></td>
-</tr>
-
-<tr>
-<td>Alamat BMT</td>
-<td><input type="text" id="alamat" size="20">
-</td>
-<td>Nama Direktur</td>
-<td><input type="text" id="direktur" size="20"></td>
-</tr>
-
-<tr>
-<td>Tahun Berdiri BMT</td>
-<td><input type="text" id="tahun" size="10">
-</td>
+<td><input type="text" id="nama" size="20"></td>
 <td>Jumlah Pegawai</td>
-<td><input type="text" name="" size="2"></td>
+<td><input type="text" id="JumPeg" size="2" placeholder="0" disabled></td>
 </tr>
-
 <tr>
-<td>Nomor Pengesahan</td>
-<td><input type="text" id="nomorsah" size="20">
-</td>
-<td colspan="2" align="right">Marketing</td>
+<td>Nama Direktur</td>
+<td><input colspan="2" type="text" id="direktur" size="20"></td>
+<td>Marketing</td>
 <td><input type="text" id="s_market" size="1"></td>
 <td>Akuntan</td>
 <td><input type="text" id="s_akuntan" size="1"></td>
 <td>Pelayanan</td>
 <td><input type="text" id="s_cs" size="1"></td>
+<td>Teller</td>
+<td><input type="text" id="s_teller" size="1"></td>
 <td>Keamanan</td>
 <td><input type="text" id="s_aman" size="1"></td>
 <td>Legal</td>
-<td><input type="text" id="s_legal" size="1"></td>
-</tr>
-
-<tr>
-<td>Badan Hukum BMT</td>
-<td><input type="text"  size="20">
-</td>
+<td><input type="text" id="s_legal" size="1"></td></tr>
+<td>Tahun Berdiri BMT</td>
+<td><input type="text" id="tahun" size="10"></td>
 <td>Jumlah Kantor</td>
-<td><input type="text"  size="1"></td>
+<td><input type="text" id="JumKan" size="1" placeholder="0" disabled></td>
+<tr><td>Nomor Pengesahan</td>
+<td><input type="text" id="nomorsah" size="20"></td>
 <td>Pusat</td>
-<td><input type="text"  size="1"></td>
+<td><input type="text" id="KanPus" size="1"></td>
 <td>Kas</td>
-<td><input type="text" size="1"></td>
+<td><input type="text" id="KanKas" size="1"></td>
 </tr>
+<tr>
+<td>Alamat BMT</td>
+<td><textarea class="form-control" rows="3"></textarea></td></tr>
 
 <tr>
-<td></td><td></td>
-<td colspan="1" align="left">Status Kantor</td>
-<td><input type="text" size="1"></td>
+<td>Nomor Telepon BMT</td>
+<td><input type="text" id="telp" size="10"></td>
+</tr>
+<tr>
+<td>Alamat Email</td>
+<td><input type="text" id="email" size="20"></td>
+</tr>
+<tr>
+<td>Status Kantor</td>
+<td><select class="form-control">
+  <option>-Silahkan Pilih-</option>
+  <option>Sewa</option>
+  <option>Milik Sendiri</option>
+</select></td>
 </tr>
 
 

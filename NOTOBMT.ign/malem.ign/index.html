@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript" src="qrc:///js/ign.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+
+	var sql = ign.sql();
+	/*
+		set driver :
+			sql.driver("sql_driver ex:sqlite2/sqlite3/mysql","connection")
+		connection :
+			mysql = "hostname:user:password:database";
+			sqlite2 or sqlite3 = "database file";
+	*/
+	var driver = sql.driver("mysql","localhost:root:dadimulyo:testthesis");
+
+function add(){
+	//var nama = $('#nama').val();
+	//var alamat = $('#alamat').val();
+	//var tahun = $('#tahun').val();
+	//var nomorsah = $('#nomorsah').val();
+	//var direktur = $('#direktur').val();	
+	//var staff market = $('#s_market').val();
+	//var staff teller = $('#s_teller').val();
+	//var staff legal = $('#s_legal').val();
+	//var staff costumer service = $('#s_cs').val();
+	//var staff akuntansi = $('#s_akuntan').val();
+	//var staff kemananan = $('#s_aman').val();	
+		
+	sql.query("insert into manlem (manlem1,manlem2,manlem3,manlem4) value ('"+manlem1+"','"+manlem2+"','"+manlem3+"','"+manlem4+"')");
+	show();
+	alert('data berhasil di input');
+}
+
+
+function resetForm(){
+}
+//->
+</script>
+</head>
+<body background=""/>
+<font color = "#AAAAA"><h2>Laporan Manajemen Lembaga</h2>
+<form name="Laporan Manajemen Lembaga" action="#">
+<table border = "1px">
+<font color = "#ee36a2">
+
+<tr>
+<td><b>No</b></td>
+<td><b>ASPEK</b></td>
+<td><b>CheckBox</b></td></tr>
+<tr>
+<td>1</td>
+<td>Ada Struktur Organisasi dan Job Description</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>2</td>
+<td>Memiliki Spesifikasi pekerjaan setiap karyawan</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>3</td>
+<td>Ada Struktur DPS (Dewan Pengawas Syariah)</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>4</td>
+<td>Memiliki SOM dan SOP</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>5</td>
+<td>SOM dan SOP saling terkait</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+<td>6</td>
+<td>Memiliki sistem pengamanan dokumen penting</td>
+<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<tr>
+
+</table>
+<input type="submit" value="INPUT" onclick="add()">
+<input type="button" value="BATAL" onMouseUp="resetForm()">
+</form>
+
+<br>
+</body>
+</html>
