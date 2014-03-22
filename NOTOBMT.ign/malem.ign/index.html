@@ -14,7 +14,7 @@
 			mysql = "hostname:user:password:database";
 			sqlite2 or sqlite3 = "database file";
 	*/
-	var driver = sql.driver("mysql","localhost:root:dadimulyo:testthesis");
+	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
 
 function add(){
 	//var nama = $('#nama').val();
@@ -29,7 +29,7 @@ function add(){
 	//var staff akuntansi = $('#s_akuntan').val();
 	//var staff kemananan = $('#s_aman').val();	
 		
-	sql.query("insert into manlem (manlem1,manlem2,manlem3,manlem4) value ('"+manlem1+"','"+manlem2+"','"+manlem3+"','"+manlem4+"')");
+	sql.query("insert into manlem (manlem1,manlem2,manlem3,manlem4,manlem5,manlem6) value ('"+manlem1+"','"+manlem2+"','"+manlem3+"','"+manlem4+"','"+manlem5+"','"+manlem6+"')");
 	show();
 	alert('data berhasil di input');
 }
@@ -49,31 +49,31 @@ function resetForm(){
 <tr>
 <td><b>No</b></td>
 <td><b>ASPEK</b></td>
-<td><b>CheckBox</b></td></tr>
+<td><b></b></td></tr>
 <tr>
 <td>1</td>
 <td>Ada Struktur Organisasi dan Job Description</td>
-<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<td><input type="checkbox" id="manlem1">Ya</td></tr>
 <tr>
 <td>2</td>
 <td>Memiliki Spesifikasi pekerjaan setiap karyawan</td>
-<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<td><input type="checkbox" id="manlem2">Ya</td></tr>
 <tr>
 <td>3</td>
 <td>Ada Struktur DPS (Dewan Pengawas Syariah)</td>
-<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<td><input type="checkbox" id="manlem3">Ya</td></tr>
 <tr>
 <td>4</td>
 <td>Memiliki SOM dan SOP</td>
-<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<td><input type="checkbox" id="manlem4">Ya</td></tr>
 <tr>
 <td>5</td>
 <td>SOM dan SOP saling terkait</td>
-<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<td><input type="checkbox" id="manlem5">Ya</td></tr>
 <tr>
 <td>6</td>
 <td>Memiliki sistem pengamanan dokumen penting</td>
-<td><input type="checkbox">Ya<input type="checkbox">Tidak</td></tr>
+<td><input type="checkbox" id="manlem6">Ya</td></tr>
 <tr>
 
 </table>
