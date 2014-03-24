@@ -29,7 +29,7 @@ function add(){
 	//var staff akuntansi = $('#s_akuntan').val();
 	//var staff kemananan = $('#s_aman').val();	
 		
-	sql.query("insert into bmt (nama,alamat,tahun,nomorsah,direktur) value ('"+nama+"','"+alamat+"','"+tahun+"','"+nomorsah+"','"+direktur+"')");
+	sql.query("insert into modal (simpanbank,simpananbmtlain,pembiayaan,penyertaan) value ('"+simpanbank+"','"+simpananbmtlain+"','"+pembiayaan+"','"+penyertaan+"')");
 	show();
 	alert('data berhasil di input');
 }

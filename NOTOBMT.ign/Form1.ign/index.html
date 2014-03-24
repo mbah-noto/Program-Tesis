@@ -34,7 +34,8 @@ function add(){
 }
 
 $(function(){
-  var Pusat,kas,Marketing,Pelayanan,Teller,Keamanan,Legal,Akuntan;
+  var Pusat,kas;
+  var Marketing,Pelayanan,Teller,Keamanan,Legal,Akuntan;
   $('#KanPus').keyup(function(){
     Pusat = parseInt($(this).val());
     $('#KanPus').val(Pusat);
@@ -69,7 +70,8 @@ $(function(){
   });
   $('#KanKas,KanPus,s_market,s_akuntan,s_aman,s_cs,s_teller,s_legal').keyup(function(){
 		$('#JumKan').val(Pusat + Kas)
-  		$('#JumPeg').val(Marketing + Pelayanan + Keamanan + Legal + Akuntan + Teller)});
+  	$('#JumPeg').val(Marketing + Pelayanan + Keamanan + Legal + Akuntan + Teller)
+  });
 });
 //->
 </script>
