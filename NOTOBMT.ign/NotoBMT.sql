@@ -170,7 +170,7 @@ CREATE TABLE `manajemen` (
   `manlik2` enum('y','t') NOT NULL,
   `manlik3` enum('y','t') NOT NULL,
   `manlik4` enum('y','t') NOT NULL,
-  `manlik5` enum('y','t','','') NOT NULL
+  `manlik5` enum('y','t') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -229,7 +229,9 @@ CREATE TABLE `modal` (
   `simpanbank` double NOT NULL,
   `simpanbmtlain` double NOT NULL,
   `pembiayaan` double NOT NULL,
-  PRIMARY KEY (`id_modal`)
+  `penyertaan` double NOT NULL,
+  PRIMARY KEY (`id_modal`),
+  KEY `id_bmt` (`id_bmt`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -309,4 +311,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-03-22  3:26:40
+-- Dump completed on 2014-03-24  9:29:28
