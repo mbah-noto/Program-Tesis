@@ -29,7 +29,7 @@ function add(){
 	var akuntansi = $('#s_akuntan').val();
 	var keamanan = $('#s_aman').val();		
 	console.log(sql.query("insert into bmt (nama,alamat,tahun,nomorsah,direktur,s_market,s_akuntan,s_teller,s_cs,s_legal,s_aman) value ('"+nama+"','"+alamat+"','"+tahun+"','"+nomorsah+"','"+direktur+"','"+market+"','"+akuntansi+"','"+teller+"','"+pelayanan+"','"+legal+"','"+keamanan+"')"));
-	//show();
+	show();
 	alert('data berhasil di input');
 }
 
@@ -68,11 +68,30 @@ $(function(){
     Legal = parseInt($(this).val());
     $('#s_legal').val(Legal);
   });
-  $('#KanKas,KanPus,s_market,s_akuntan,s_aman,s_cs,s_teller,s_legal').keyup(function(){
+  $('#KanKas,KanPus').keyup(function(){
 		$('#JumKan').val(Pusat + Kas)
   	$('#JumPeg').val(Marketing + Pelayanan + Keamanan + Legal + Akuntan + Teller)
   });
 });
+
+function show(){
+  $('#alamat').val('');
+  $('#nama').val('');
+  if(driver){
+    var qry = sql.query("select * from peserta");
+    var query = $.parseJSON(qry);
+    var html = "";
+    $("h3").html("Status Database Connection : "+query.status);
+    if(query.status){
+      $.each(query.content,function(data){
+        html += "No : "+this.no+"<br>";
+        html += "Nama : "+this.nama+"<br>";
+        html += "Alamat : "+this.alamat+"<br><hr>";
+      });
+    }
+    $(".data").html(html);
+  }
+}
 //->
 </script>
 </head>
