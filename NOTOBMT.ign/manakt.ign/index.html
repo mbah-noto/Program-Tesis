@@ -26,7 +26,7 @@ function add(){
 	var dalam = $('#manakt7').val();
 	var keputusan = $('#manakt8').val();
 	var setelahpembiayaan = $('#manakt9').val();
-	var staff akuntansi = $('#s_akuntan').val();
+	var kjks = $('#manakt10').val();
 	var manakt = [];
 	for (i=1;i<=10;1++){
 		if($('manakt'+i).prop('checked'))
@@ -36,9 +36,10 @@ function add(){
 			manakt[i] = "t";
 		}
 	}
-		console.log(("'"+manakt[1]]+"','"+manakt[2]+"','"+manakt[3]+"','"+manakt[4]+"','"+manakt[5]+"','"+manakt[6]+"','"+manakt[7]+"','"+manakt[8]+"','"+manakt[9]+"','"+manakt[10]+"'"));
-	sql.query("insert into manajemen (manakt1,manakt2,manakt3,manakt4,manakt5,manakt6,manakt7,manakt8,manakt9,manakt10) value ('"+manakt		[1]]+"','"+manakt[2]+"','"+manakt[3]+"','"+manakt[4]+"','"+manakt[5]+"','"+manakt[6]+"','"+manakt[7]+"','"+manakt[8]+"','"+manakt[9]+"','"+manakt[10]+"')");
-	show();
+
+		console.log(manajemen);
+	var manajemen = sql.query("insert into manajemen (id_bmt,manakt1,manakt2,manakt3,manakt4,manakt5,manakt6,manakt7,manakt8,manakt9,manakt10) value ('1','"+manakt[1]+"','"+manakt[2]+"','"+manakt[3]+"','"+manakt[4]+"','"+manakt[5]+"','"+manakt[6]+"','"+manakt[7]+"','"+manakt[8]+"','"+manakt[9]+"','"+manakt[10]+"')");
+
 	alert('data berhasil di input');
 }
 
@@ -90,7 +91,7 @@ dengan efektif.</td>
 <td>6</td>
 <td>Memiliki kebijakan cadangan penghapusan <br>pembiayaan dan piutang bermasalah 
 </td>
-<td><input type="checkbox" id="manakt6">Ya</td></tr>
+<td><input type="checkbox" id="manakt6"></td></tr>
 <tr>
 <td>7</td>
 <td>Dalam memberikan pembiayaan, BMT mengambil<br> 
@@ -115,7 +116,10 @@ dalam memenuhi kewajibannya. </td>
 penilaian dan pengikatan terhadap agunannya.</td>
 <td><input type="checkbox" id="manakt10"></td></tr>
 </table>
+<input type="submit" value="NEXT>>" onclick="add()">
+<input type="button" value="BATAL" onMouseUp="resetForm()">
 </form>
+
 
 <br>
 </body>

@@ -17,6 +17,7 @@
 	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
 
 function add(){
+	var manlik = [];
 	var Memilikikebijaksanaan = $('#manlik1').val();
 	var Memilikifasilitas = $('#manlik2').val();
 	var Memilikipedoman = $('#manlik3').val();
@@ -32,9 +33,9 @@ function add(){
 			patuh[i] = "t";
 		}
 	}
-	console.log(("'"+manlik[1]+"','"+manlik[2]+"','"+manlik[3]+"','"+manlik[4]+"','"+manlik[5]+"'"));
-	sql.query("insert into manajemen (manlik1,manlik2,manlik3,manlik4,manlik5) value ('"+manlik[1]+"','"+manlik[2]+"','"+manlik[3]+"','"+manlik[4]+"','"+manlik[5]+"')");
-	show();
+	console.log(manlik);
+	var manajemen = sql.query("insert into manajemen (id_bmt,manlik1,manlik2,manlik3,manlik4,manlik5) value ('1','"+manlik[1]+"','"+manlik[2]+"','"+manlik[3]+"','"+manlik[4]+"','"+manlik[5]+"')");
+	
 	alert('data berhasil di input');
 }
 
