@@ -6,7 +6,7 @@
 <script language="JavaScript" type="text/javascript">
 <!--
 
-	var sql = ign.sql();
+
 	/*
 		set driver :
 			sql.driver("sql_driver ex:sqlite2/sqlite3/mysql","connection")
@@ -14,9 +14,11 @@
 			mysql = "hostname:user:password:database";
 			sqlite2 or sqlite3 = "database file";
 	*/
-	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
+	var sql = ign.sql();
+	var drive = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
 
 function add(){
+	var manlem = [];
 	var adastrukturorganisasi = $('#manlem1').val();
 	var memilikispesifikasi = $('#manlem2').val();
 	var adastrukturdps = $('#manlem3').val();
@@ -24,16 +26,18 @@ function add(){
 	var som = $('#manlem5').val();
 	var memilikisistem = $('#manlem6').val();
 	for(i=1;i<=6;i++){
-		if($('manlem'+i).prop('checked'))
+		console.log($('#manlem'+i).prop('checked'))
+		if($('#manlem'+i).prop('checked'))
 		{
 			manlem[i] = "y";
 		}else{
 			manlem[i] = "t";
 		}
 	}
-	console.log(("'"+manlem[1]+"','"+manlem[2]+"','"+manlem[3]+"','"+manlem[4]+"','"+manlem[5]+"','"+manlem[6]+"'"));
-	sql.query("insert into manajemen (manlem1,manlem2,manlem3,manlem4,manlem5,manlem6) value ('"+manlem[1]]+"','"+manlem[2]+"','"+manlem[3]+"','"+manlem[4]+"','"+manlem[5]+"','"+manlem[6]+"')");
-	show();
+	
+	var manajemen = sql.query("insert into manajemen (id_bmt,manlem1,manlem2,manlem3,manlem4,manlem5,manlem6) value ('1','"+manlem[1]+"','"+manlem[2]+"','"+manlem[3]+"','"+manlem[4]+"','"+manlem[5]+"','"+manlem[6]+"')");
+	console.log(manajemen);
+
 	alert('data berhasil di input');
 }
 

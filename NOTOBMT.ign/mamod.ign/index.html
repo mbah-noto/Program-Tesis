@@ -6,7 +6,7 @@
 <script language="JavaScript" type="text/javascript">
 <!--
 
-	var sql = ign.sql();
+	
 	/*
 		set driver :
 			sql.driver("sql_driver ex:sqlite2/sqlite3/mysql","connection")
@@ -14,16 +14,18 @@
 			mysql = "hostname:user:password:database";
 			sqlite2 or sqlite3 = "database file";
 	*/
+	var sql = ign.sql();
 	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
 
 function add(){
+	var manmod = [];
 	var pertumbuhan = $('#manmod1').val();
 	var pertumbuhanmodal = $('#manmod2').val();
 	var penyisihan = $('#manmod3').val();
 	var simpanan = $('#manmod4').val();
 	var investasi = $('#manmod5').val();	
 	var manmod = []
-	(i=1;i<=5;1++){
+	for(i=1;i<=5;1++){
 		if($('#manmod'+i).prop('checked'))
 		{
 			manmod[i] = "y";
@@ -32,10 +34,11 @@ function add(){
 			manmod[i] = "t";
 		}
 	}	
-	console.log(("'"+manmod[1]+"','"+manmod[2]+"','"+manmod[3]+"','"+manmod[4]+"','"+manmod[5]+"'"));
-	sql.query("insert into manajemen (manmod1,manmod2,manmod3,manmod4,manmod5) value ('"+manmod[1]+"','"+manmod[2]+"','"+manmod[3]+"','"+manmod[4]+"','"+manmod[5]+"')");
-	show();
+	
+	var manajemen = sql.query("insert into manajemen (id_bmt,manmod1,manmod2,manmod3,manmod4,manmod5) value ('1','"+manmod[1]+"','"+manmod[2]+"','"+manmod[3]+"','"+manmod[4]+"','"+manmod[5]+"')");
+	
 	alert('data berhasil di input');
+	console.log(manajemen);
 }
 
 
