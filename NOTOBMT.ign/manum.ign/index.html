@@ -17,7 +17,7 @@
 	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
 
 function add(){
-	var Visi = $('#manum1').val();
+	var visi = $('#manum1').val();
 	var rencana = $('manum2').val();
 	var rencanakerja = $('#manum3').val();
 	var kesesuaian = $('#manum4').val();
@@ -28,8 +28,7 @@ function add(){
 	var pengurustidak = $('#manum9').val();
 	var anggotabmt = $('#manum10').val();
 	var petinggibmt = $('#manum11').val();
-	var pengarusmelakukan = $('#manum12')
-	
+	var pengarusmelakukan = $('#manum12').val();
 	var manum = []
 	(i=1;i<=12;1++){
 		if ($('#manum'+i).prop('checked'))
@@ -39,9 +38,10 @@ function add(){
 			manum[i] = "t";
 		}
 	}
-	console.log("'"+manum[1]+"','"+manum[2]+"','"+manum[3]+"','"+manum[4]+"','"+manum[5]+"','"+manum[6]+"','"+manum[7]+"','"+manum[8]+"','"+manum[9]+"','"+manum[10]+"','"+manum[11]+"','"+manum[12]+"'");
-	sql.query("insert into manajemen (manum1,manum2,manum3,manum4,manum5,manum6,manum7,manum8,manum9,manum10,manum11,manum12) value ('"+manum[1]+"','"+manum[2]+"','"+manum[3]+"','"+manum[4]+"','"+manum[5]+"','"+manum[6]+"','"+manum[7]+"','"+manum[8]+"','"+manum[9]+"','"+manum[10]+"','"+manum[11]+"','"+manum[12]+"')");
-	show();
+	
+	var manajemen = sql.query("insert into manajemen (id_bmt,manum1,manum2,manum3,manum4,manum5,manum6,manum7,manum8,manum9,manum10,manum11,manum12) value ('1','"+manum[1]+"','"+manum[2]+"','"+manum[3]+"','"+manum[4]+"','"+manum[5]+"','"+manum[6]+"','"+manum[7]+"','"+manum[8]+"','"+manum[9]+"','"+manum[10]+"','"+manum[11]+"','"+manum[12]+"')");
+	console.log(manajemen);
+	
 	alert('data berhasil di input');
 }
 

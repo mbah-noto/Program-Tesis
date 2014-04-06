@@ -36,8 +36,8 @@ function add(){
 			patuh[i] = "t";
 		}
 	}
-	console.log(("'"+patuh[1]+"','"+patuh[2]+"','"+patuh[3]+"','"+patuh[4]+"','"+patuh[5]+"','"+patuh[6]+"','"+patuh[7]+"','"+patuh[8]+"','"+patuh[9]+"','"+patuh[10]+"'"));
-	sql.query("insert into patuhsyariah (patuh1,patuh2,patuh3,patuh4,patuh5,patuh6,patuh7,patuh8,patuh9,patuh10) value ('"+patuh[1]+"','"+patuh[2]+"','"+patuh[3]+"','"+patuh[4]+"','"+patuh[5]+"','"+patuh[6]+"','"+patuh[7]+"','"+patuh[8]+"','"+patuh[9]+"','"+patuh[10]+"')");
+	console.log(patuh);
+	var patuh = sql.query("insert into patuhsyariah (id_bmt,patuh1,patuh2,patuh3,patuh4,patuh5,patuh6,patuh7,patuh8,patuh9,patuh10) value ('1','"+patuh[1]+"','"+patuh[2]+"','"+patuh[3]+"','"+patuh[4]+"','"+patuh[5]+"','"+patuh[6]+"','"+patuh[7]+"','"+patuh[8]+"','"+patuh[9]+"','"+patuh[10]+"')");
 	//show();
 	alert('data berhasil di input');
 }
