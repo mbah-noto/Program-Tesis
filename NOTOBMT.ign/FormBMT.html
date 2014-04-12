@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript" src="qrc:///js/ign.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+
+	var sql = ign.sql();
+	/*
+		set driver :
+			sql.driver("sql_driver ex:sqlite2/sqlite3/mysql","connection")
+		connection :
+			mysql = "hostname:user:password:database";
+			sqlite2 or sqlite3 = "database file";
+	*/
+	var driver = sql.driver("mysql","localhost:root:dadimulyo:NotoBMT");
+
+function add(){
+	var nama = $('#nama').val();
+	var alamat = $('#alamat').val();
+	var tahun = $('#tahun').val();
+	var nomorsah = $('#nomorsah').val();
+	var direktur = $('#direktur').val();	
+	var market = $('#s_market').val();
+	var teller = $('#s_teller').val();
+	var legal = $('#s_legal').val();
+	var pelayanan = $('#s_cs').val();
+	var akuntansi = $('#s_akuntan').val();
+	var keamanan = $('#s_aman').val();
+	var status = $('#status').val();		
+	console.log(sql.query("insert into bmt (nama,alamat,tahun,nomorsah,direktur,s_market,s_akuntan,s_teller,s_cs,s_legal,s_aman,StatusKantor) value ('"+nama+"','"+alamat+"','"+tahun+"','"+nomorsah+"','"+direktur+"','"+market+"','"+akuntansi+"','"+teller+"','"+pelayanan+"','"+legal+"','"+keamanan+"','"+status+"')"));
+	show();
+	alert('data berhasil di input');
+}
+
+$(function(){
+  var Pusat,kas;
+  var Marketing,Pelayanan,Teller,Keamanan,Legal,Akuntan;
+  $('#KanPus').keyup(function(){
+    Pusat = parseInt($(this).val());
+    $('#KanPus').val(Pusat);
+  });
+  $('#KanKas').keyup(function(){
+    Kas = parseInt($(this).val());
+    $('#KanKas').val(Kas);
+  });
+  $('#s_market').keyup(function(){
+    Marketing = parseInt($(this).val());
+    $('#s_market').val(Marketing);
+  });
+  $('#s_cs').keyup(function(){
+    Pelayanan = parseInt($(this).val());
+    $('#s_cs').val(Pelayanan);
+  });
+  $('#s_teller').keyup(function(){
+    Teller = parseInt($(this).val());
+    $('#s_teller').val(Teller);
+  });
+  $('#s_aman').keyup(function(){
+    Keamanan = parseInt($(this).val());
+    $('#s_aman').val(Keamanan);
+  });
+  $('#s_akuntan').keyup(function(){
+    Akuntan = parseInt($(this).val());
+    $('#s_akuntan').val(Akuntan);
+  });
+  $('#s_legal').keyup(function(){
+    Legal = parseInt($(this).val());
+    $('#s_legal').val(Legal);
+  });
+  $('#KanKas,KanPus').keyup(function(){
+		$('#JumKan').val(Pusat + Kas)
+  	$('#JumPeg').val(Marketing + Pelayanan + Keamanan + Legal + Akuntan + Teller)
+  });
+});
+
+function show(){
+  $('#alamat').val('');
+  $('#nama').val('');
+  if(driver){
+    var qry = sql.query("select * from peserta");
+    var query = $.parseJSON(qry);
+    var html = "";
+    $("h3").html("Status Database Connection : "+query.status);
+    if(query.status){
+      $.each(query.content,function(data){
+        html += "No : "+this.no+"<br>";
+        html += "nama : "+this.nama+"<br>";
+        html += "alamat : "+this.alamat+"<br><hr>";
+      });
+    }
+    $(".data").html(html);
+  }
+}
+//->
+</script>
+</head>
+<body background=""/>
+<font color = "#AAAAA"><h2>Data BMT</h2>
+<form name="Daftar BMT" action="#">
+<table border = "0px">
+<font color = "#ee36a2">
+
+<tr>
+<td>Nama BMT</td>
+<td><input type="text" id="nama" size="20"></td>
+<td>Jumlah Pegawai</td>
+<td><input type="text" id="JumPeg" size="2" placeholder="0" disabled></td>
+</tr>
+<tr>
+<td>Nama Direktur</td>
+<td><input colspan="2" type="text" id="direktur" size="20"></td>
+<td>Marketing</td>
+<td><input type="text" id="s_market" size="1"></td>
+<td>Akuntan</td>
+<td><input type="text" id="s_akuntan" size="1"></td>
+<td>Pelayanan</td>
+<td><input type="text" id="s_cs" size="1"></td>
+<td>Teller</td>
+<td><input type="text" id="s_teller" size="1"></td>
+<td>Keamanan</td>
+<td><input type="text" id="s_aman" size="1"></td>
+<td>Legal</td>
+<td><input type="text" id="s_legal" size="1"></td></tr>
+<td>Tahun Berdiri BMT</td>
+<td><input type="text" id="tahun" size="10"></td>
+<td>Jumlah Kantor</td>
+<td><input type="text" id="JumKan" size="1" placeholder="0" disabled></td>
+<tr><td>Nomor Pengesahan</td>
+<td><input type="text" id="nomorsah" size="20"></td>
+<td>Pusat</td>
+<td><input type="text" id="KanPus" size="1"></td>
+<td>Kas</td>
+<td><input type="text" id="KanKas" size="1"></td>
+</tr>
+<tr>
+<td>Alamat BMT</td>
+<td><textarea class="form-control" rows="3" id="alamat"></textarea></td></tr>
+
+<tr>
+<td>Nomor Telepon BMT</td>
+<td><input type="text" id="telp" size="10"></td>
+</tr>
+<tr>
+<td>Alamat Email</td>
+<td><input type="text" id="email" size="20"></td>
+</tr>
+<tr>
+<td>Status Kantor</td>
+<td><select class="form-control" id="status">
+  <option>-Silahkan Pilih-</option>
+  <option value="sewa">Sewa</option>
+  <option value="milik sendiri">Milik Sendiri</option>
+</select></td>
+</tr>
+
+</table>
+<input type="submit" value="INPUT" onclick="add()">
+<input type="button" value="BATAL" onMouseUp="resetForm()">
+</form>
+
+<br>
+</body>
+</html>

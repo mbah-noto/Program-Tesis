@@ -3,10 +3,15 @@
 	<head>
 		<meta name="viewport" content="width=device-width">
 		<script src="js/jquery-2.0.3.min.js"></script>
-		<script src="qrc:///js/ign.js"></script>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<script src="js/bootstrap.min.js"></script>
 		<link href="css/gears.css" rel="stylesheet">
+<script>
+$(document).ready(function(){
+		$('#formBMT').load('FormBMT.html');
+		
+});
+</script>
 	</head>
 	<body style="height: 100%;">
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -46,7 +51,7 @@
 			</ul>
 		</div>
 		<div style="height: 100%; margin: 0; margin-left: 20%; padding-top: 53px; width: 80%;">
-			<div class="contents" style="height: 100%;">
+			<div class="contents" id="formBMT" style="height: 100%;">
 				
 			</div>
 		</div>
