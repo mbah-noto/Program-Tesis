@@ -31,10 +31,34 @@ function add(){
 	var status = $('#status').val();		
 	console.log(sql.query("insert into bmt (nama,alamat,tahun,nomorsah,direktur,s_market,s_akuntan,s_teller,s_cs,s_legal,s_aman,StatusKantor) value ('"+nama+"','"+alamat+"','"+tahun+"','"+nomorsah+"','"+direktur+"','"+market+"','"+akuntansi+"','"+teller+"','"+pelayanan+"','"+legal+"','"+keamanan+"','"+status+"')"));
 	show();
-	alert('data berhasil di input');
+	$('#nama').val('');
+	$('#alamat').val('');
+	$('#tahun').val('');
+	$('#nomorsah').val('');
+	$('#direktur').val('');	
+	$('#s_market').val('');
+	$('#s_teller').val('');
+	$('#s_legal').val('');
+	$('#s_cs').val('');
+	$('#s_akuntan').val('');
+	$('#s_aman').val('');
+	$('#status').val('');
+	return false;
+}
+
+function show(){
+  var data = sql.query('select nama, alamat from bmt');
+  var showbmt = "<tr><td>No</td><td>Nama</td><td>Alamat</td></tr>";
+  console.log(data)
+  $.each(data.content,function(k,v){
+	  showbmt += "<tr><td>"+k+"</td><td>"+v.nama+"</td><td>"+v.alamat+"</td></tr>"
+	});
+	
+	$('#showbmt').html(showbmt);
 }
 
 $(function(){
+  show();
   var Pusat,kas;
   var Marketing,Pelayanan,Teller,Keamanan,Legal,Akuntan;
   $('#KanPus').keyup(function(){
@@ -75,30 +99,13 @@ $(function(){
   });
 });
 
-function show(){
-  $('#alamat').val('');
-  $('#nama').val('');
-  if(driver){
-    var qry = sql.query("select * from peserta");
-    var query = $.parseJSON(qry);
-    var html = "";
-    $("h3").html("Status Database Connection : "+query.status);
-    if(query.status){
-      $.each(query.content,function(data){
-        html += "No : "+this.no+"<br>";
-        html += "nama : "+this.nama+"<br>";
-        html += "alamat : "+this.alamat+"<br><hr>";
-      });
-    }
-    $(".data").html(html);
-  }
-}
+
 //->
 </script>
 </head>
 <body background=""/>
 <font color = "#AAAAA"><h2>Data BMT</h2>
-<form name="Daftar BMT" action="#">
+
 <table border = "0px">
 <font color = "#ee36a2">
 
@@ -156,10 +163,12 @@ function show(){
 </tr>
 
 </table>
-<input type="submit" value="INPUT" onclick="add()">
+<input type="submit" value="INPUT123" onclick="add()">
 <input type="button" value="BATAL" onMouseUp="resetForm()">
-</form>
-
 <br>
+<table border="1" id="showbmt">
+
+</table>
+
 </body>
 </html>

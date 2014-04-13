@@ -8,10 +8,13 @@
 		<link href="css/gears.css" rel="stylesheet">
 <script>
 $(document).ready(function(){
-		$('#home').load('google.com');
+		$('#home').load('malem.html');
 		$('#bmt').click(function(){
-			$('#home').load('FormBMT.html');
-		})
+			$('#home').load('FormBMT.html');	
+		});
+		$('#beranda').click(function(){
+			$('#home').load('malem.html');
+			})
 });
 </script>
 	</head>
@@ -46,7 +49,7 @@ $(document).ready(function(){
 		</nav>
 		<div style="height: 100%; margin: 0 0 0 1px; position: fixed; top: 51px; left: 0; width: 20%; background-color: #E8F3F9; border-right: 2px solid #DDD; box-shadow: inset -5px 0px 5px -4px #95B6BC;">
 			<ul class="nav nav-pills nav-stacked categories" style="padding: 5px;">
-				<li><a href="#"><img class="category-icon" src="/home/igos/Dokumen/GITHUB/Kuliah/Program-Tesis/NOTOBMT.ign/images/iMac-21-icon.png">Beranda</a></li>
+				<li><a href="#"id="beranda"><img class="category-icon" src="/home/igos/Dokumen/GITHUB/Kuliah/Program-Tesis/NOTOBMT.ign/images/iMac-21-icon.png">Beranda</a></li>
 				<li><a href="#" id="bmt"><img class="category-icon" src="/home/igos/Dokumen/GITHUB/Kuliah/Program-Tesis/NOTOBMT.ign/images/My-Documents-icon.png">BMT</a></li>
 				<li><a href="#" id="rangking"><img class="category-icon" src="/home/igos/Dokumen/GITHUB/Kuliah/Program-Tesis/NOTOBMT.ign/images/Text-edit-icon.png">Rangking</a></li>
 				
